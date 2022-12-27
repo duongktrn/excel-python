@@ -16,75 +16,75 @@ from num2words import num2words
 # git push origin master 
 
 
-# ############## 1. pandas
+############## 1. pandas
 
-# #Đọc file excel bằng datafarm
-# df = pd.read_excel('pd.xlsx')
+#Đọc file excel bằng datafarm
+df = pd.read_excel('pd.xlsx')
 
-# #đọc dữ liệu 1 cột (lấy cả giá trị rỗng ,và index lớn nhất của 1 cột) :
-# column_A = df['name']
-# column_B = df['address']
-# column_C = df['phone']
+#đọc dữ liệu 1 cột (lấy cả giá trị rỗng ,và index lớn nhất của 1 cột) :
+column_A = df['name']
+column_B = df['address']
+column_C = df['phone']
 
-# #đọc dữ liệu 1 cột bỏ qua giá trị none của hàng:
-# column_D = df['address'].dropna()
+#đọc dữ liệu 1 cột bỏ qua giá trị none của hàng:
+column_D = df['address'].dropna()
 
-# # ghi dữ liệu 1 cột vào 1 mảng :
-# arr_A = [column for column in column_A]
-# arr_B = [column for column in column_B]
-# arr_C = [column for column in column_C]
-# arr_D = [column for column in column_D]
-# print(arr_A)
-# print(arr_B)
-# print(arr_C)
-# print(arr_D)
+# ghi dữ liệu 1 cột vào 1 mảng :
+arr_A = [column for column in column_A]
+arr_B = [column for column in column_B]
+arr_C = [column for column in column_C]
+arr_D = [column for column in column_D]
+print(arr_A)
+print(arr_B)
+print(arr_C)
+print(arr_D)
 
-# #Tìm vị trí index của 1 ô trong 1 cột:
-# index=df[df['name']=='nga'].index[0]
-# print(index)
+#Tìm vị trí index của 1 ô trong 1 cột:
+index=df[df['name']=='nga'].index[0]
+print(index)
 
-# # Tìm vị trí index cuối cùng :
-# print(column_C.index.stop)
-# # cách 2
-# index = df.index.stop
-# print(index)
+# Tìm vị trí index cuối cùng :
+print(column_C.index.stop)
+# cách 2
+index = df.index.stop
+print(index)
 
-# # Thêm giá trị vào ô 
-# df.at[7,'phone'] =999
-# df.to_excel('pd.xlsx',index=False)
+# Thêm giá trị vào ô 
+df.at[7,'phone'] =999
+df.to_excel('pd.xlsx',index=False)
 
-# # Lấy giá trị của 1 ô:
-# value_A = df.at[2,'name']
-# print(value_A)
-# # dùng phương thức loc
-# #khác nhau giữ loc và at là at xử lý nhanh hơn ,nhưng loc có thể lấy 1 lúc nhiều chỉ mục index
-# value_B = df.loc[2,'address']
-# print(value_B)
-# value_C = df.loc[[1,2,3],'address']
-# print(value_C)
+# Lấy giá trị của 1 ô:
+value_A = df.at[2,'name']
+print(value_A)
+# dùng phương thức loc
+#khác nhau giữ loc và at là at xử lý nhanh hơn ,nhưng loc có thể lấy 1 lúc nhiều chỉ mục index
+value_B = df.loc[2,'address']
+print(value_B)
+value_C = df.loc[[1,2,3],'address']
+print(value_C)
 
-# #ghi dữ liệu 1 mảng vào 1 cột ,chú ý : index trong mảng phải bằng index cột ,nếu thiếu thì phải thêm giá trị rỗng vào mảng để bằng nhau
-# #cách này nhanh hơn dùng phương thức at()
-# df['test'] = arr_A
-# print(df['test'])
+#ghi dữ liệu 1 mảng vào 1 cột ,chú ý : index trong mảng phải bằng index cột ,nếu thiếu thì phải thêm giá trị rỗng vào mảng để bằng nhau
+#cách này nhanh hơn dùng phương thức at()
+df['test'] = arr_A
+print(df['test'])
 
-# # head(): trả về các hàng đầu tiên của dataframe.
-# # tail(): trả về các hàng cuối cùng của dataframe.
-# # shape: trả vế số hàng và cột của dataframe.
-# # columns: trả về danh sách tên các cột trong dataframe.
-# # info(): trả về thông tin chi tiết về dataframe, bao gồm số lượng hàng, số lượng cột, kiểu dữ liệu của từng cột, v.v.
+# head(): trả về các hàng đầu tiên của dataframe.
+# tail(): trả về các hàng cuối cùng của dataframe.
+# shape: trả vế số hàng và cột của dataframe.
+# columns: trả về danh sách tên các cột trong dataframe.
+# info(): trả về thông tin chi tiết về dataframe, bao gồm số lượng hàng, số lượng cột, kiểu dữ liệu của từng cột, v.v.
 
-# # sort_values(): sắp xếp dataframe theo một hoặc nhiều cột nhất định.
-# # groupby(): nhóm dữ liệu trong dataframe theo một hoặc nhiều cột nhất định.
-# # pivot_table(): tạo bảng chuyển đổi (pivot table) từ dataframe.
-# # reset_index(): thiết lập lại chỉ mục của dataframe.
-# # drop(): xóa một hoặc nhiều hàng hoặc cột khỏi dataframe.
-# # rename(): đổi tên một hoặc nhiều cột trong dataframe.
-# # fillna(): điền giá trị mặc định vào các ô bị thiếu dữ liệu trong dataframe.
-# df['phone']=df['phone'].fillna(0)
-# df = df.fillna(0)
-# print(df['phone'])
-# print(df)
+# sort_values(): sắp xếp dataframe theo một hoặc nhiều cột nhất định.
+# groupby(): nhóm dữ liệu trong dataframe theo một hoặc nhiều cột nhất định.
+# pivot_table(): tạo bảng chuyển đổi (pivot table) từ dataframe.
+# reset_index(): thiết lập lại chỉ mục của dataframe.
+# drop(): xóa một hoặc nhiều hàng hoặc cột khỏi dataframe.
+# rename(): đổi tên một hoặc nhiều cột trong dataframe.
+# fillna(): điền giá trị mặc định vào các ô bị thiếu dữ liệu trong dataframe.
+df['phone']=df['phone'].fillna(0)
+df = df.fillna(0)
+print(df['phone'])
+print(df)
 
 
 # ########################### 2  openpyxl
